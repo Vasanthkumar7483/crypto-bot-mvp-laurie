@@ -1,0 +1,1 @@
+# Technical indicators and trade suggestion logic

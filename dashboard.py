@@ -1,17 +1,19 @@
+
 import streamlit as st
 import streamlit_authenticator as stauth
 
 # --- LOGIN SETUP ---
-names = ['Laurie']
-usernames = ['laurie']
-hashed_passwords = [
-    '$2b$12$wGuB/5dkNmf9jcWBfAUtkemrquMZyPqkjm2/Um6f6LY5yIq4TUpUG'  # Hashed version of 'Laurie123'
-]
+credentials = {
+    'usernames': {
+        'laurie': {
+            'name': 'Laurie',
+            'password': '$2b$12$wGuB/5dkNmf9jcWBfAUtkemrquMZyPqkjm2/Um6f6LY5yIq4TUpUG'  # Hashed Laurie123
+        }
+    }
+}
 
 authenticator = stauth.Authenticate(
-    names,
-    usernames,
-    hashed_passwords,
+    credentials,
     'crypto_cookie',
     'abcdef',
     cookie_expiry_days=1

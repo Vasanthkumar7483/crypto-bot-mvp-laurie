@@ -17,7 +17,7 @@ st.markdown("Welcome to your crypto trading dashboard!")
 st.header("📊 Market Overview")
 
 exchange = ccxt.binance()
-symbols = ['BTC/AUD', 'ETH/AUD', 'BNB/AUD']
+symbols = ['BTC/USDT', 'ETH/USDT', 'BNB/USDT']
 market_data = {}
 
 for symbol in symbols:
@@ -34,7 +34,7 @@ for symbol in symbols:
 # Display live prices
 for symbol, data in market_data.items():
     st.subheader(f"{symbol}")
-    st.write(f"💰 Price: {data['price']}")
+    st.write(f"💰 Price: {data['price']} USDT")
     st.write(f"📉 Change: {data['change']}%")
     st.write(f"🕒 Updated: {data['time']}")
     st.markdown("---")

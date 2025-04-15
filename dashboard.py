@@ -3,30 +3,26 @@ import streamlit as st
 import streamlit_authenticator as stauth
 
 # --- LOGIN SETUP ---
-credentials = {
-    'usernames': {
-        'laurie': {
-            'name': 'Laurie',
-            'password': '$2b$12$wGuB/5dkNmf9jcWBfAUtkemrquMZyPqkjm2/Um6f6LY5yIq4TUpUG'  # Hashed Laurie123
-        }
-    }
-}
+names = ['Laurie']
+usernames = ['laurie']
+hashed_passwords = [
+    '$2b$12$wGuB/5dkNmf9jcWBfAUtkemrquMZyPqkjm2/Um6f6LY5yIq4TUpUG'  # Hashed Laurie123
+]
 
 authenticator = stauth.Authenticate(
-    credentials,
+    names,
+    usernames,
+    hashed_passwords,
     'crypto_cookie',
     'abcdef',
     cookie_expiry_days=1
 )
 
-name, authentication_status, username = authenticator.login(
-    location='main',
-    fields={'Form name': 'Login'}
-)
+name, authentication_status, username = authenticator.login('Login', 'main')
 
-if authentication_status is False:
+if authentication_status == False:
     st.error('Username/password is incorrect')
-elif authentication_status is None:
+elif authentication_status == None:
     st.warning('Please enter your username and password')
 elif authentication_status:
 

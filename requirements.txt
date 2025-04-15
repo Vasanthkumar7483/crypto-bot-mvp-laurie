@@ -1,7 +1,7 @@
 streamlit
-ccxt
+streamlit-authenticator==0.2.2
 pandas
 numpy
-requests
+ccxt
 matplotlib
-streamlit-authenticator
+requests

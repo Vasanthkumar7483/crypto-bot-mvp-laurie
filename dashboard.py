@@ -19,10 +19,7 @@ authenticator = stauth.Authenticate(
     cookie_expiry_days=1
 )
 
-name, authentication_status, username = authenticator.login(
-    location='main',
-    fields={'Form name': 'Login'}
-)
+name, authentication_status, username = authenticator.login('Login', location='main')
 
 if authentication_status == False:
     st.error('Username/password is incorrect')
